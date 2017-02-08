@@ -231,6 +231,7 @@ namespace AcadProjectLineUtils
         {
             for (int i = 0; i < mLineCollection.Count; i++)
             {
+                if (line.Equals(mLineCollection[i]))
                     return true;
             }
             return false;
