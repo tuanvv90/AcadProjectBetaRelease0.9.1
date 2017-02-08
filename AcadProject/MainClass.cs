@@ -69,7 +69,7 @@ namespace AcadProject
             pPtOpts.Message = "\nPick Zero point : ";
             pPtRes = doc.Editor.GetPoint(pPtOpts);
             Point3d ptZero = pPtRes.Value;
-            extractDataObject.zeroPoint.setXY(ptZero.X, ptZero.Y); 
+            extractDataObject.getZeroPoint().setXY(ptZero.X, ptZero.Y); 
 
             // Exit if the user presses ESC or cancels the command
             if (pPtRes.Status != PromptStatus.OK) return;

@@ -72,13 +72,26 @@ namespace AcadProjectExtractData
             return extractDataInstance;
         }
 
-
         //METHODs definition
         public void setNumberOfPoint(int nPoints)
         {
             numberOfPoint = nPoints;
         }
 
+        public List<LayerUtils> getListOfLayer() 
+        {
+            return this.mListLayer;
+        }
+
+        public PointUtils getZeroPoint() 
+        {
+            return this.zeroPoint;
+        }
+
+        public PointUtils getCenterPoint() 
+        {
+            return this.centerPoint;
+        }
         public void setMss(double mss)
         {
             this.MSS = mss;
