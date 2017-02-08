@@ -6,6 +6,9 @@ using AcadProjectLayerUtils;
 
 namespace AcadProjectExtractData
 {
+    /*
+     *  Singleton pattern 
+     */
     class ExtractData
     {
         static int MAX_POINT = 10000;
@@ -37,12 +40,16 @@ namespace AcadProjectExtractData
         int numberSet;
 
         //List of Layer
-        public List<LayerUtils> mListLayer = new List<LayerUtils>();
-        public PointUtils zeroPoint = new PointUtils();
-        public PointUtils centerPoint = new PointUtils();
-        public double MSS = 0.0;
+        public List<LayerUtils> mListLayer;
+        public PointUtils zeroPoint;
+        public PointUtils centerPoint;
+        public double MSS;
 
-        public ExtractData()
+        //Create an object of ExtractData
+        private static ExtractData extractDataInstance = new ExtractData();
+
+        //Make the constructor private so that this class cannot be instantiated
+        private ExtractData()
         {
             for(int i = 0; i< MAX_POINT; i++)
             {
@@ -51,8 +58,22 @@ namespace AcadProjectExtractData
                     isLineArray[i, j] = UNCONNECTED;
                 }
             }
+
+            //Initialize
+            mListLayer = new List<LayerUtils>();
+            zeroPoint = new PointUtils();
+            centerPoint = new PointUtils();
+            MSS = 0.0;
         }
 
+        //Get the only object available
+        public static ExtractData getInstance()
+        {
+            return extractDataInstance;
+        }
+
+
+        //METHODs definition
         public void setNumberOfPoint(int nPoints)
         {
             numberOfPoint = nPoints;

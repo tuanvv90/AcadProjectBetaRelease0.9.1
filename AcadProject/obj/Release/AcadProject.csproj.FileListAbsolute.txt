@@ -26,3 +26,11 @@ D:\WEB DESIGN\GitHub\Projects\AcadProject\AcadProject\bin\Release\AcCui.dll
 D:\WEB DESIGN\GitHub\Projects\AcadProject\AcadProject\obj\Release\AcadProject.csprojResolveAssemblyReference.cache
 D:\WEB DESIGN\GitHub\Projects\AcadProject\AcadProject\obj\Release\AcadProject.dll
 D:\WEB DESIGN\GitHub\Projects\AcadProject\AcadProject\obj\Release\AcadProject.pdb
+D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\bin\Release\AcadProject.dll
+D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\bin\Release\AcadProject.pdb
+D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\bin\Release\AdWindows.dll
+D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\bin\Release\AcTcMgd.dll
+D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\bin\Release\AcCui.dll
+D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\obj\Release\AcadProject.csprojResolveAssemblyReference.cache
+D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\obj\Release\AcadProject.dll
+D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\obj\Release\AcadProject.pdb
