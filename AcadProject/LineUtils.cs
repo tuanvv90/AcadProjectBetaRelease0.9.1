@@ -17,6 +17,18 @@ namespace AcadProjectLineUtils
         //Delta data
         public double DELTA_POINT = 0.0;
 
+        // Rounding compare two point
+        private bool rctwoPoint(double x1, double y1, double x2, double y2)
+        {
+            if(Math.Abs(x1-x2) <= 0.00001 && Math.Abs(y1 - y2) <= 0.00001)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         // Convert List Line to array 
         public int convertListLineToArray(List<Line> lines, double []arrayX, double []arrayY, bool [,]isLine)
@@ -31,7 +43,8 @@ namespace AcadProjectLineUtils
                 
                 for(j = 0; j < numberOfPoint; j++)
                 {   
-                    if(x == arrayX[j] && y == arrayY[j])
+                    //if(Math.Abs(x - arrayX[j]) <= 0.00001 && Math.Abs(y - arrayY[j]) <= 0.00001)
+                    if(rctwoPoint(x,y, arrayX[j], arrayY[j]))
                     {
                         break;
                     }
@@ -44,7 +57,8 @@ namespace AcadProjectLineUtils
                 }
                 for (int k = 0; k < numberOfPoint; k++)
                 {
-                    if (arrayX[k] == lines[i].EndPoint.X && arrayY[k] == lines[i].EndPoint.Y)
+                    //if (arrayX[k] == lines[i].EndPoint.X && arrayY[k] == lines[i].EndPoint.Y)
+                    if(rctwoPoint(arrayX[k], arrayY[k], lines[i].EndPoint.X, lines[i].EndPoint.Y))
                     {
                         isLine[j, k] = true;
                         isLine[k, j] = true;
@@ -57,7 +71,8 @@ namespace AcadProjectLineUtils
 
                 for (j = 0; j < numberOfPoint; j++)
                 {
-                    if (x == arrayX[j] && y == arrayY[j])
+                    //if (x == arrayX[j] && y == arrayY[j])
+                    if (rctwoPoint(x, y, arrayX[j], arrayY[j]))
                     {
                         break;
                     }
@@ -70,7 +85,8 @@ namespace AcadProjectLineUtils
                 }
                 for (int k = 0; k < numberOfPoint; k++)
                 {
-                    if (arrayX[k] == lines[i].StartPoint.X && arrayY[k] == lines[i].StartPoint.Y)
+                    //if (arrayX[k] == lines[i].StartPoint.X && arrayY[k] == lines[i].StartPoint.Y)
+                    if (rctwoPoint(arrayX[k], arrayY[k], lines[i].StartPoint.X, lines[i].StartPoint.Y))
                     {
                         isLine[j, k] = true;
                         isLine[k, j] = true;
@@ -244,8 +260,8 @@ namespace AcadProjectLineUtils
         public bool isLineBeRemoved(Line line) 
         {
             //if (Math.Abs(line.StartPoint.X - line.EndPoint.X) < 0.01)
-            if(line.StartPoint.X == line.EndPoint.X)
-                return true;
+            //if(line.StartPoint.X == line.EndPoint.X)
+                //return true;
             return false;
         }
 

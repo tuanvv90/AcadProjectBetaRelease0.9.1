@@ -96,8 +96,8 @@ namespace AcadProject
             PromptDoubleResult pMssRes = doc.Editor.GetDouble(pMssOpts);
             extractDataObject.setMss(pMssRes.Value);
             
-            if (pMssRes.Status != PromptStatus.OK)
-                return;
+            //if (pMssRes.Status != PromptStatus.OK)
+            //    return;
 
             //----------------------------------------------------------]]
 
@@ -152,8 +152,8 @@ namespace AcadProject
             double[] arrayY = extractDataObject.getArrayY();
             bool[,] isLineMatrix = extractDataObject.getIsLineMatrix();
 
-            numberOfPoint = mLineUtilObject.convertListLineToArray(lines, arrayX, arrayY, isLineMatrix);
-            //numberOfPoint = mLineUtilObject.convertListLineToArray(mLineCollection, arrayX, arrayY, isLineMatrix);
+            //numberOfPoint = mLineUtilObject.convertListLineToArray(lines, arrayX, arrayY, isLineMatrix);
+            numberOfPoint = mLineUtilObject.convertListLineToArray(mLineCollection, arrayX, arrayY, isLineMatrix);
             ed.WriteMessage("number of Point: {0}", numberOfPoint);
             extractDataObject.setNumberOfPoint(numberOfPoint);
 
@@ -192,9 +192,9 @@ namespace AcadProject
             fileName = "D:/extractInput.txt";
             mLineUtilObject.dump(extractDataObject.getStringInput(), ed, fileName);
 
-            extractDataObject.processExtractData();
-            fileName = "D:/extractOutput.txt";
-            mLineUtilObject.dump(extractDataObject.getStringResult(), ed, fileName);
+            //extractDataObject.processExtractData();
+            //fileName = "D:/extractOutput.txt";
+            //mLineUtilObject.dump(extractDataObject.getStringResult(), ed, fileName);
 
         }
 

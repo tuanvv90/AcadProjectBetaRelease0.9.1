@@ -31,3 +31,11 @@ D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProjec
 D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\obj\Debug\AcadProject.csprojResolveAssemblyReference.cache
 D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\obj\Debug\AcadProject.dll
 D:\WEB DESIGN\GitHub\Projects\AcadProjectRelease2\AcadProjectRelease2\AcadProject\obj\Debug\AcadProject.pdb
+E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\bin\Debug\AcadProject.dll
+E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\bin\Debug\AcadProject.pdb
+E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\bin\Debug\AdWindows.dll
+E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\bin\Debug\AcTcMgd.dll
+E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\bin\Debug\AcCui.dll
+E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\obj\Debug\AcadProject.csprojResolveAssemblyReference.cache
+E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\obj\Debug\AcadProject.dll
+E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\obj\Debug\AcadProject.pdb
