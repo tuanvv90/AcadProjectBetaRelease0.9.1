@@ -156,6 +156,7 @@ namespace AcadProject
             numberOfPoint = mLineUtilObject.convertListLineToArray(mLineCollection, arrayX, arrayY, isLineMatrix);
             ed.WriteMessage("number of Point: {0}", numberOfPoint);
             extractDataObject.setNumberOfPoint(numberOfPoint);
+            mLineUtilObject.sortLTRandUTB(arrayX, arrayY,numberOfPoint);
 
             sb.Append("Number of line : " + mLineCollection.Count + "\n");
             for (int i = 0; i < mLineCollection.Count; i++)

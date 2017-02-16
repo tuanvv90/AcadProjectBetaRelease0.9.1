@@ -17,6 +17,43 @@ namespace AcadProjectLineUtils
         //Delta data
         public double DELTA_POINT = 0.0;
 
+        // Sort left to right, up to bottom
+
+       public void sortLTRandUTB(double[] arrayX, double[] arrayY, int numberOfPoint)
+        {
+            for(int i = 0; i<numberOfPoint-1; i++)
+            {
+                for(int j = numberOfPoint-1; j > i; j--)
+                {
+                    if(Math.Abs(arrayX[i] - arrayX[j]) <= 0.00001)
+                    {
+                        if(arrayY[i] > arrayY[j])
+                        {
+                            double temp = arrayX[i];
+                            arrayX[i] = arrayX[j];
+                            arrayX[j] = temp;
+
+                            temp = arrayY[i];
+                            arrayY[i] = arrayY[j];
+                            arrayY[j] = temp;
+                        }
+                    }
+                    else if (arrayX[i] > arrayX[j])
+                    {
+                        double temp = arrayX[i];
+                        arrayX[i] = arrayX[j];
+                        arrayX[j] = temp;
+
+                        temp = arrayY[i];
+                        arrayY[i] = arrayY[j];
+                        arrayY[j] = temp;
+                    }
+
+                }
+            }
+        }
+
+
         // Rounding compare two point
         private bool rctwoPoint(double x1, double y1, double x2, double y2)
         {
