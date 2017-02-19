@@ -9,6 +9,8 @@ using Autodesk.AutoCAD.Windows;
 using System.IO;
 using System.Text;
 using System;
+using AcadProjectLayerUtils;
+using AcadProjectExtractData;
 
 namespace AcadProjectLineUtils
 {
@@ -17,8 +19,25 @@ namespace AcadProjectLineUtils
         //Delta data
         public double DELTA_POINT = 0.0;
 
-        // Sort left to right, up to bottom
+        //Convert arrayX, arrayY to Point
+        public void convertXYArrayToPointArray(double[] arrayX, double[] arrayY, int numberOfPoint, bool[,] isLine)
+        {
+            for (int i = 0; i < numberOfPoint - 1; i++)
+            {
+                PointUtils newPoint = new PointUtils();
+                newPoint.setXY(arrayX[i], arrayY[i]);
+                for (int j = 0; j < numberOfPoint - 1; j++)
+                {
+                    if (isLine[i, j]) {
+                        newPoint.setPointConnectedWith(j);
+                    }
 
+                }
+                ExtractData.getInstance().mListPoint.Add(newPoint);
+            }
+        }
+
+       // Sort left to right, up to bottom
        public void sortLTRandUTB(double[] arrayX, double[] arrayY, int numberOfPoint)
         {
             for(int i = 0; i<numberOfPoint-1; i++)

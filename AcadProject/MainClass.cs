@@ -45,7 +45,7 @@ namespace AcadProject
             mLayerCollection.Clear();
             mPolylineCollection.Clear();
             mLineCollection.Clear();
-            extractDataObject.mListLayer.Clear();
+            ExtractData.getInstance().mListLayer.Clear();
 
             PromptSelectionOptions pso = new PromptSelectionOptions();
 
@@ -69,7 +69,7 @@ namespace AcadProject
             pPtOpts.Message = "\nPick Zero point : ";
             pPtRes = doc.Editor.GetPoint(pPtOpts);
             Point3d ptZero = pPtRes.Value;
-            extractDataObject.getZeroPoint().setXY(ptZero.X, ptZero.Y); 
+            ExtractData.getInstance().getZeroPoint().setXY(ptZero.X, ptZero.Y); 
 
             // Exit if the user presses ESC or cancels the command
             if (pPtRes.Status != PromptStatus.OK) return;
@@ -94,7 +94,7 @@ namespace AcadProject
 
             // Get the MSS value entered by the user
             PromptDoubleResult pMssRes = doc.Editor.GetDouble(pMssOpts);
-            extractDataObject.setMss(pMssRes.Value);
+            ExtractData.getInstance().setMss(pMssRes.Value);
             
             //if (pMssRes.Status != PromptStatus.OK)
             //    return;
@@ -148,15 +148,16 @@ namespace AcadProject
             List<Line> lines = mLineUtilObject.cuttingLineIfCrossed(mLineCollection);
             int numberOfPoint;
             //ExtractData extractData = new ExtractData();
-            double[] arrayX = extractDataObject.getArrayX();
-            double[] arrayY = extractDataObject.getArrayY();
-            bool[,] isLineMatrix = extractDataObject.getIsLineMatrix();
+            double[] arrayX = ExtractData.getInstance().getArrayX();
+            double[] arrayY = ExtractData.getInstance().getArrayY();
+            bool[,] isLineMatrix = ExtractData.getInstance().getIsLineMatrix();
 
             //numberOfPoint = mLineUtilObject.convertListLineToArray(lines, arrayX, arrayY, isLineMatrix);
             numberOfPoint = mLineUtilObject.convertListLineToArray(mLineCollection, arrayX, arrayY, isLineMatrix);
             ed.WriteMessage("number of Point: {0}", numberOfPoint);
             extractDataObject.setNumberOfPoint(numberOfPoint);
             mLineUtilObject.sortLTRandUTB(arrayX, arrayY,numberOfPoint);
+            mLineUtilObject.convertXYArrayToPointArray(arrayX, arrayY, numberOfPoint, isLineMatrix);
 
             sb.Append("Number of line : " + mLineCollection.Count + "\n");
             for (int i = 0; i < mLineCollection.Count; i++)

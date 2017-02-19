@@ -41,6 +41,7 @@ namespace AcadProjectExtractData
 
         //List of Layer
         public List<LayerUtils> mListLayer;
+        public List<PointUtils> mListPoint;
         public PointUtils zeroPoint;
         public PointUtils centerPoint;
         public double MSS;
@@ -61,6 +62,7 @@ namespace AcadProjectExtractData
 
             //Initialize
             mListLayer = new List<LayerUtils>();
+            mListPoint = new List<PointUtils>();
             zeroPoint = new PointUtils();
             centerPoint = new PointUtils();
             MSS = 0.0;
