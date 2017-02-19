@@ -30,6 +30,7 @@ namespace AcadProjectLineUtils
                 {
                     if (isLine[i, j]) {
                         newPoint.setPointConnectedWith(j);
+                        break;
                     }
 
                 }
