@@ -16,37 +16,33 @@ namespace AcadProjectLineUtils
     {
         //Delta data
         public double DELTA_POINT = 0.0;
-
         // Sort left to right, up to bottom
 
-       public void sortLTRandUTB(double[] arrayX, double[] arrayY, int numberOfPoint)
+        public void sortLTRandUTB(int[] idx,  double[] arrayX, double[] arrayY, int numberOfPoint)
         {
+            for(int i = 0; i< numberOfPoint; i++)
+            {
+                idx[i] = i;
+            }
+
             for(int i = 0; i<numberOfPoint-1; i++)
             {
                 for(int j = numberOfPoint-1; j > i; j--)
                 {
-                    if(Math.Abs(arrayX[i] - arrayX[j]) <= 0.00001)
+                    if(Math.Abs(arrayX[idx[i]] - arrayX[idx[j]]) <= 0.00001)
                     {
-                        if(arrayY[i] > arrayY[j])
+                        if(arrayY[idx[i]] > arrayY[idx[j]])
                         {
-                            double temp = arrayX[i];
-                            arrayX[i] = arrayX[j];
-                            arrayX[j] = temp;
-
-                            temp = arrayY[i];
-                            arrayY[i] = arrayY[j];
-                            arrayY[j] = temp;
+                            int temp = idx[i];
+                            idx[i] = idx[j];
+                            idx[j] = temp;
                         }
                     }
                     else if (arrayX[i] > arrayX[j])
                     {
-                        double temp = arrayX[i];
-                        arrayX[i] = arrayX[j];
-                        arrayX[j] = temp;
-
-                        temp = arrayY[i];
-                        arrayY[i] = arrayY[j];
-                        arrayY[j] = temp;
+                        int temp = idx[i];
+                        idx[i] = idx[j];
+                        idx[j] = temp;
                     }
 
                 }

@@ -156,7 +156,7 @@ namespace AcadProject
             numberOfPoint = mLineUtilObject.convertListLineToArray(mLineCollection, arrayX, arrayY, isLineMatrix);
             ed.WriteMessage("number of Point: {0}", numberOfPoint);
             extractDataObject.setNumberOfPoint(numberOfPoint);
-            mLineUtilObject.sortLTRandUTB(arrayX, arrayY,numberOfPoint);
+            mLineUtilObject.sortLTRandUTB(extractDataObject.getIndexs(), arrayX, arrayY,numberOfPoint);
 
             sb.Append("Number of line : " + mLineCollection.Count + "\n");
             for (int i = 0; i < mLineCollection.Count; i++)
@@ -193,9 +193,9 @@ namespace AcadProject
             fileName = "D:/extractInput.txt";
             mLineUtilObject.dump(extractDataObject.getStringInput(), ed, fileName);
 
-            //extractDataObject.processExtractData();
-            //fileName = "D:/extractOutput.txt";
-            //mLineUtilObject.dump(extractDataObject.getStringResult(), ed, fileName);
+            extractDataObject.processExtractData();
+            fileName = "D:/extractOutput.txt";
+            mLineUtilObject.dump(extractDataObject.getStringResult(), ed, fileName);
 
         }
 

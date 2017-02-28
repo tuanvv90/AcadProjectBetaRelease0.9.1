@@ -35,3 +35,4 @@ E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\bin\Debug\Ac
 E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\bin\Debug\AcadProject.pdb
 E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\obj\Debug\AcadProject.dll
 E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\obj\Debug\AcadProject.pdb
+E:\Workspace\C#\ACAD\Github\AcadProjectBetaRelease0.9.1\AcadProject\obj\Debug\AcadProject.csprojResolveAssemblyReference.cache
