@@ -9,6 +9,8 @@ using Autodesk.AutoCAD.Windows;
 using System.IO;
 using System.Text;
 using System;
+using AcadProjectLayerUtils;
+using AcadProjectExtractData;
 
 namespace AcadProjectLineUtils
 {
@@ -17,7 +19,6 @@ namespace AcadProjectLineUtils
         //Delta data
         public double DELTA_POINT = 0.0;
         // Sort left to right, up to bottom
-
         public void sortLTRandUTB(int[] idx,  double[] arrayX, double[] arrayY, int numberOfPoint)
         {
             for(int i = 0; i< numberOfPoint; i++)

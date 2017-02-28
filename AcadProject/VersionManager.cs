@@ -8,7 +8,7 @@ namespace AcadProjectVersionManager
     class VersionManager
     {
         //Beta version release 2nd
-        private String RELEASE_VERSION = "0.9.1";
+        private readonly String RELEASE_VERSION = "0.9.1";
 
         public VersionManager() { }
         public String getReleaseVersion()

@@ -9,9 +9,11 @@ namespace AcadProjectLayerUtils
     {
         public double X, Y;
         public double High, Distance;
+        public int connectedWithPoint;
         public PointUtils() 
         {
             High = Distance = X = Y = 0.0;
+            connectedWithPoint = -1; //don't connect with any point
         }
 
         public void setXY(double X, double Y) 
@@ -44,6 +46,16 @@ namespace AcadProjectLayerUtils
 
         public double getDistance() {
             return this.Distance;
+        }
+
+        public int getPointConnectedWith()
+        {
+            return connectedWithPoint;
+        }
+
+        public void setPointConnectedWith(int index)
+        {
+            connectedWithPoint = index;
         }
     }
 
