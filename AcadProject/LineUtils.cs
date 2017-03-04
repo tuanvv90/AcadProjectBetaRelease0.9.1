@@ -18,6 +18,7 @@ namespace AcadProjectLineUtils
     {
         //Delta data
         public double DELTA_POINT = 0.0;
+
         // Sort left to right, up to bottom
         public void sortLTRandUTB(int[] idx,  double[] arrayX, double[] arrayY, int numberOfPoint)
         {
