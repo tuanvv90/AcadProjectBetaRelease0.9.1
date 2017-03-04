@@ -227,6 +227,7 @@ namespace AcadProjectExtractData
             initTempData();
 
             // Find right index array
+            nLayer = 0;
             int currentIndex = numberOfPoint - 1;
             double cX = x[indexs[currentIndex]];
             double cY = y[indexs[currentIndex]];
