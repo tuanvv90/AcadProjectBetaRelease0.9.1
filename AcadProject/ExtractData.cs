@@ -276,8 +276,8 @@ namespace AcadProjectExtractData
             //int numberSet;
 
             initTempData();
-
-            // Next Processing here
+            findRightIndexs();
+            layerClarification(getRightsIndexs(), x, y, isLineArray, numberOfPoint);
 
         }
 
