@@ -31,7 +31,7 @@ namespace AcadProjectExtractData
         int[] visited = new int[MAX_POINT];
         int rsCurrentSetIndex;
         int rsCurrentPointIndex;
-        int[] rightIndexs;
+        int[] rightIndexs = new int[MAX_SET];
         int nLayer;
 
         // extracted ouput
@@ -226,6 +226,12 @@ namespace AcadProjectExtractData
 
             initTempData();
 
+            // Next Processing here
+
+        }
+
+        public int findRightIndexs()
+        {
             // Find right index array
             nLayer = 0;
             int currentIndex = numberOfPoint - 1;
@@ -243,9 +249,18 @@ namespace AcadProjectExtractData
                 cY = y[indexs[currentIndex]];
                 nextX = x[indexs[currentIndex - 1]]; nextY = y[indexs[currentIndex - 1]];
             }
-            // Next Processing here
-
+            return nLayer;
         }
+        
+        public int[] getRightsIndexs()
+        {
+            int[] indexs = new int[nLayer];
+            for(int i = 0; i<nLayer; i++)
+            {
+                indexs[i] = rightIndexs[i];
+            }
+            return indexs;
+        } 
 
         private bool checkAllVisited()
         {
