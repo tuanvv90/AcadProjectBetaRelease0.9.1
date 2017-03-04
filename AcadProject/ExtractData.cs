@@ -181,6 +181,7 @@ namespace AcadProjectExtractData
                 LayerUtils addLayer = new LayerUtils();
                 
                 PointUtils addPoint = new PointUtils();
+                addPoint.setXY(arrayX[rightLeftMost[i]], arrayY[rightLeftMost[i]]);
                 addLayer.addPointToLayer(addPoint);
                 isVisited[rightLeftMost[i]] = true;
 
@@ -188,6 +189,7 @@ namespace AcadProjectExtractData
                 {
                     if (isLine[rightLeftMost[i], j] && !isVisited[j])
                     {
+                        if ((arrayY[rightLeftMost[i]] >= arrayY[j])) 
                         {
                             isVisited[j] = true;
                             PointUtils addPoint2 = new PointUtils();
