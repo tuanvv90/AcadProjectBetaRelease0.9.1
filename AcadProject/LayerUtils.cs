@@ -49,7 +49,7 @@ namespace AcadProjectLayerUtils
     }
 
     public class LayerUtils
-    {
+    {       
         public List<PointUtils> listOfPoint;
         public LayerUtils()
         {

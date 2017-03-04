@@ -159,6 +159,55 @@ namespace AcadProjectExtractData
             return str;
         }
 
+        //Layer clarification
+        public string layerClarification(int[] rightLeftMost, double []arrayX, double []arrayY, bool[,] isLine, int numberOfPoint)
+        {
+            //layer data
+            string layerInfo = "";
+
+            //reset predata of layer
+            mListLayer.Clear();
+
+            //visited tracking array
+            bool [] isVisited = new bool [numberOfPoint];
+            for (int i = 0; i < numberOfPoint; i++)
+            {
+                isVisited[i] = false;
+            }
+
+            for (int i = 0; i < rightLeftMost.Length; i++)
+            {
+                //Create new layer then add points to it
+                LayerUtils addLayer = new LayerUtils();
+                
+                PointUtils addPoint = new PointUtils();
+                addLayer.addPointToLayer(addPoint);
+                isVisited[rightLeftMost[i]] = true;
+
+                for (int j = 0; j < numberOfPoint; j++)
+                {
+                    if (isLine[rightLeftMost[i], j] && !isVisited[j])
+                    {
+                        {
+                            isVisited[j] = true;
+                            PointUtils addPoint2 = new PointUtils();
+                            addPoint.setXY(arrayX[j], arrayY[j]);
+                            addLayer.addPointToLayer(addPoint2);
+                        }
+                    }
+                }
+                mListLayer.Add(addLayer);
+            }
+            for (int i = 0; i < mListLayer.Count; i++)
+            {
+                layerInfo += "\nDistance/High of Layer : " + i;
+                layerInfo += mListLayer[i].toStringData().ToString();
+            }
+
+            return layerInfo;
+        }
+
+        //Calculate high and distance
         public void calculateHighDistance(List<LayerUtils> listLayer, PointUtils zeroPoint, double MSS)
         {
             for (int i = 0; i < listLayer.Count; i++)
