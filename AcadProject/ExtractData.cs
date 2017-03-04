@@ -31,6 +31,8 @@ namespace AcadProjectExtractData
         int[] visited = new int[MAX_POINT];
         int rsCurrentSetIndex;
         int rsCurrentPointIndex;
+        int[] rightIndexs;
+        int nLayer;
 
         // extracted ouput
         double[,] resultX = new double[MAX_SET, MAX_POINT];
@@ -223,61 +225,24 @@ namespace AcadProjectExtractData
             //int numberSet;
 
             initTempData();
+
+            // Find right index array
             int currentIndex = numberOfPoint - 1;
             double cX = x[indexs[currentIndex]];
             double cY = y[indexs[currentIndex]];
             double nextX = x[indexs[currentIndex - 1]], nextY = y[indexs[currentIndex - 1]];
+            rightIndexs[nLayer] = indexs[currentIndex];
+            nLayer++;
             while (nextY <= cY)
             {
-                
-                resultX[rsCurrentSetIndex, rsCurrentPointIndex] = cX;
-                resultY[rsCurrentSetIndex, rsCurrentPointIndex] = cY;
-                rsCurrentPointIndex++;
-                int nextIdxInLine = -1, currentIdxInline = currentIndex;
-
-                // Find set from a point
-                while (true)
-                {
-                    nextIdxInLine = -1;
-                    for (int i = 0; i < numberOfPoint; i++)
-                    {
-                        if (isLineArray[indexs[i], indexs[ currentIdxInline]])
-                        {
-                            if(
-                                x[indexs[i]] - x[indexs[currentIdxInline]] < 0.00001&&
-                                Math.Abs(x[indexs[i]] - x[indexs[currentIdxInline]]) > 0.00001
-                               )
-                            {
-                                if (Math.Abs(y[indexs[i]] - y[indexs[currentIdxInline]])/ Math.Abs(x[indexs[i]] - x[indexs[currentIdxInline]]) < 0.15)
-                                {
-                                    nextIdxInLine = i;
-                                }
-                            }
-                        }
-                    }
-
-                    if(nextIdxInLine == -1)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        resultX[rsCurrentSetIndex, rsCurrentPointIndex] = x[indexs[nextIdxInLine]];
-                        resultY[rsCurrentSetIndex, rsCurrentPointIndex] = y[indexs[nextIdxInLine]];
-                        rsCurrentPointIndex++;
-                        currentIdxInline = nextIdxInLine;
-                    }
-                }
-                numberPointOfSet[rsCurrentSetIndex] = rsCurrentPointIndex;
-                rsCurrentSetIndex++;
-                rsCurrentPointIndex = 0;
                 currentIndex--;
+                rightIndexs[nLayer] = indexs[currentIndex];
+                nLayer++;
                 cX = x[indexs[currentIndex]];
                 cY = y[indexs[currentIndex]];
                 nextX = x[indexs[currentIndex - 1]]; nextY = y[indexs[currentIndex - 1]];
-
             }
-            numberSet = rsCurrentSetIndex;
+            // Next Processing here
 
         }
 
